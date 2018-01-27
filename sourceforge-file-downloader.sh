@@ -1,5 +1,16 @@
 #!/bin/sh
 
+display_usage() {
+  echo "Downloads all of a SourceForge project's files."
+  echo "\nUsage: ./sourceforge-file-download.sh [project name] \n"
+}
+
+if [ $# -eq 0 ]
+then
+  display_usage
+  exit 1
+fi
+
 project=$1
 echo "Downloading $project's files"
 
