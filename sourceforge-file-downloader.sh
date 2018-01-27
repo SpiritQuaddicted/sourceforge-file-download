@@ -8,7 +8,7 @@ echo "Downloading $project's files"
 wget -w 1 -np -m -A download http://sourceforge.net/projects/$project/files/
 
 # extract those links
-grep -Rh direct-download sourceforge.net/ | grep -Eo '".*" ' | sed 's/"//g' > urllist
+grep -Rh refresh sourceforge.net/ | grep -o "https[^\\?]*" > urllist
 
 # remove temporary files, unless you want to keep them for some reason
 rm -r sourceforge.net/
