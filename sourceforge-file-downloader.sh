@@ -17,7 +17,7 @@ echo "Downloading $project's files"
 
 # download all the pages on which direct download links are
 # be nice, sleep a second
-wget -w 1 -np -m -A download http://sourceforge.net/projects/$project/files/
+wget -w 1 -np -m -A download https://sourceforge.net/projects/$project/files/
 
 # extract those links
 grep -Rh refresh sourceforge.net/ | grep -o "https[^\\?]*" > urllist
