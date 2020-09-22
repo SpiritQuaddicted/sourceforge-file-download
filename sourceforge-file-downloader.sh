@@ -3,7 +3,7 @@ set -e
 
 display_usage() {
   echo "Downloads all of a SourceForge project's files."
-  echo "\nUsage: ./sourceforge-file-download.sh [project name] \n"
+  echo -e "\nUsage: ./sourceforge-file-download.sh [project name]\n"
 }
 
 if [ $# -eq 0 ]
