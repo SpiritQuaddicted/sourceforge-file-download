@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 display_usage() {
   echo "Downloads all of a SourceForge project's files."
