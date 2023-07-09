@@ -26,5 +26,5 @@ find sourceforge.net/ | sed "s#.*${project}/files/##" | grep download$ | grep -v
 while read url; do wget --content-disposition -x -nH --cut-dirs=1 "${url}"; done < urllist
 
 # remove temporary files, unless you want to keep them for some reason
-rm -r sourceforge.net/
-rm urllist
+rm -ri sourceforge.net/
+rm -i urllist
