@@ -19,8 +19,8 @@ echo "Downloading $project's files"
 # be nice, sleep a second
 wget -w 1 -np -m -A download https://sourceforge.net/projects/$project/files/
 
-# extract those links
-grep -Rh refresh sourceforge.net/ | grep -o "https://[^\\?]*" > urllist
+# find the files (ignore "latest" link, that should be included as another URL already)
+find sourceforge.net/ | sed "s#.*${project}/files/##" | grep download$ | grep -v "latest/download" | sed -e "s#^#https://master.dl.sourceforge.net/project/${project}/#" -e "s#/download#?viasf=1#" > urllist
 
 # download each of the extracted URLs, put into $projectname/
 while read url; do wget --content-disposition -x -nH --cut-dirs=1 "${url}"; done < urllist
